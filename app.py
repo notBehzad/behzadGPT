@@ -296,7 +296,7 @@ st.markdown(
         color: var(--paper);
     }
     .card .sub {
-        font-size: 13px;
+        font-size: 18px;
         color: var(--paper-dim);
         margin-bottom: 20px;
         line-height: 1.5;
@@ -468,10 +468,12 @@ if not st.session_state.session_active:
         unsafe_allow_html=True,
     )
 
+    default_prompt = "Mario is a very good friend. He always helps Behzad and loves to talk to him. Today Mario met Behzad."
+
     with st.form("setup_form"):
         system_prompt = st.text_area(
             "Roleplay / system prompt",
-            placeholder="e.g. Mario is a very good friend. He always helps Behzad and loves to talk to him. Today Mario met Behzad.",
+            value=default_prompt,
             height=110,
         )
 
