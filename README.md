@@ -6,6 +6,7 @@ The project includes everything from data preprocessing, tokenizer training, mod
 
 Unlike projects that only fine-tune existing LLMs, this model was designed and trained entirely from scratch as a university learning project. Consider this model a 5 year old child only. As this model only has 25 million parameters and a very short context window (a few lines), don't compare its performance with the modern LLMs, they have billions or trillions of parameters and spend a lot of money on training resources while I used free small ones.
 
+![architecture diagram](assets/architecture.png)
 ---
 
 ## Demo
