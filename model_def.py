@@ -1,10 +1,3 @@
-"""
-behzadGPT model architecture.
-
-This is the same architecture the user trained with — untouched except that
-the __main__ CLI loop has been removed (that logic now lives in backend.py,
-wired up to serve HTTP requests instead of a terminal prompt loop).
-"""
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
