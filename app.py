@@ -284,7 +284,7 @@ st.markdown(
     .card {
         background: var(--panel);
         border: 1px solid var(--line);
-        border-radius: 10px;
+        border-radius: 20px; /* Made rounder */
         padding: 28px;
         margin-top: 10px;
     }
@@ -314,7 +314,7 @@ st.markdown(
     div[data-baseweb="input"] > div, div[data-baseweb="textarea"] > div {
         background-color: var(--ink) !important;
         border: 1px solid var(--line) !important;
-        border-radius: 6px !important;
+        border-radius: 16px !important; /* Made rounder */
         color: var(--paper) !important;
     }
 
@@ -332,7 +332,7 @@ st.markdown(
         color: #1a1408 !important;
         font-weight: 600 !important;
         border: none !important;
-        border-radius: 6px !important;
+        border-radius: 24px !important; /* Made rounder (pill shape) */
         padding: 10px 20px !important;
         transition: background .15s ease !important;
         width: 100%;
@@ -341,14 +341,14 @@ st.markdown(
         background-color: #dba85c !important;
     }
 
-/* Header Chat Info */
+    /* Header Chat Info */
     .chat-header {
         display: flex;
         align-items: center;
         padding: 10px 16px;
         border: 1px solid var(--line);
         background: var(--panel);
-        border-radius: 8px;
+        border-radius: 20px; /* Made rounder */
         margin-bottom: 0px;
     }
     .chat-header .who {
@@ -358,7 +358,7 @@ st.markdown(
     }
     .avatar {
         width: 32px; height: 32px;
-        border-radius: 6px;
+        border-radius: 50%; /* Made fully round */
         background: linear-gradient(135deg, var(--brass), var(--brass-dim));
         display: flex; align-items: center; justify-content: center;
         font-family: var(--mono);
@@ -387,13 +387,19 @@ st.markdown(
         width: fit-content;
         max-width: 75%;
         height: auto;
-        padding: 5px 5px;
-        border-radius: 10px;
+        padding: 12px 16px; /* Adjusted padding for better proportions */
+        border-radius: 18px; /* Made rounder */
         font-size: 14.5px;
-        line-height: 1.4;
+        line-height: 1.5;
         white-space: pre-wrap;
         word-wrap: break-word;
         box-sizing: border-box;
+    }
+
+    /* FIX: Remove default margin from Streamlit's injected <p> tags so boxes aren't artificially tall */
+    .msg p {
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .msg-label {
@@ -408,21 +414,22 @@ st.markdown(
     .msg.bot {
         background: var(--panel-raised);
         border: 1px solid var(--line);
-        border-bottom-left-radius: 2px;
+        border-bottom-left-radius: 4px; /* Softer tail */
         color: var(--paper);
     }
 
     .msg.user {
         background: var(--brass);
         color: #1a1408;
-        border-bottom-right-radius: 2px;
+        border-bottom-right-radius: 4px; /* Softer tail */
     }
 
     /* Chat Input Styling */
     div[data-testid="stChatInput"] {
         background-color: var(--panel) !important;
         border: 1px solid var(--line) !important;
-        border-radius: 8px !important;
+        border-radius: 24px !important; /* Made rounder (pill shape) */
+        padding: 0 8px; /* Adds breathing room to the input */
     }
     </style>
     """,
