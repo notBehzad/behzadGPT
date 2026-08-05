@@ -333,7 +333,7 @@ st.markdown(
         font-weight: 600 !important;
         border: none !important;
         border-radius: 24px !important; /* Made rounder (pill shape) */
-        padding: 10px 20px !important;
+        padding: 15px 20px !important;
         transition: background .15s ease !important;
         width: 100%;
     }
@@ -387,16 +387,16 @@ st.markdown(
         width: fit-content;
         max-width: 75%;
         height: auto;
-        padding: 12px 16px; /* Adjusted padding for better proportions */
-        border-radius: 18px; /* Made rounder */
+        padding: 12px 16px;
+        border-radius: 18px; 
         font-size: 14.5px;
+        margin: 10px;
         line-height: 1.5;
         white-space: pre-wrap;
         word-wrap: break-word;
         box-sizing: border-box;
     }
 
-    /* FIX: Remove default margin from Streamlit's injected <p> tags so boxes aren't artificially tall */
     .msg p {
         margin: 0 !important;
         padding: 0 !important;
@@ -555,20 +555,14 @@ else:
             st.session_state.context = ""
             st.rerun()
 
-    # Render Chat History
+# Render Chat History
     for msg in st.session_state.chat_history:
         role_class = "bot" if msg["role"] == "bot" else "user"
-        st.markdown(
-            f"""
-            <div class="msg-wrap {role_class}">
-                <div class="msg {role_class}">
-                    <div class="msg-label">{msg["name"]}</div>
-                    {msg["text"]}
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        
+        # Flattened string to prevent 'pre-wrap' from rendering Python indent spaces
+        msg_html = f'<div class="msg-wrap {role_class}"><div class="msg {role_class}"><div class="msg-label">{msg["name"]}</div>{msg["text"]}</div></div>'
+        
+        st.markdown(msg_html, unsafe_allow_html=True)
 
     # Chat Input Box
     if user_message := st.chat_input("Type a message..."):
