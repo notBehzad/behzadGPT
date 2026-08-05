@@ -480,7 +480,7 @@ if not st.session_state.session_active:
         """
         <div class="card">
             <h1>New session</h1>
-            <p class="sub">Set the scene before you start talking or just use the pre existing template. This won't change mid-conversation, start a new session to change it. Keep it simple.</p>
+            <p class="sub">Set the scene before you start talking or just use the pre existing template. This won't change mid-conversation, start a new session to change it. Keep it simple and in first person. Avoid prompt like "You are..."</p>
         </div>
         """,
         unsafe_allow_html=True,
