@@ -387,7 +387,7 @@ st.markdown(
         width: fit-content;
         max-width: 75%;
         height: auto;
-        padding: 10px 14px;
+        padding: 5px 5px;
         border-radius: 10px;
         font-size: 14.5px;
         line-height: 1.4;
