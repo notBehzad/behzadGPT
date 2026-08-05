@@ -341,16 +341,15 @@ st.markdown(
         background-color: #dba85c !important;
     }
 
-    /* Header Chat Info */
+/* Header Chat Info */
     .chat-header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 12px 18px;
+        padding: 10px 16px;
         border: 1px solid var(--line);
         background: var(--panel);
         border-radius: 8px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
     }
     .chat-header .who {
         display: flex;
@@ -375,16 +374,28 @@ st.markdown(
         display: flex;
         flex-direction: column;
         margin-bottom: 12px;
+        width: 100%;
     }
+    .msg-wrap.bot {
+        align-items: flex-start;
+    }
+    .msg-wrap.user {
+        align-items: flex-end;
+    }
+
     .msg {
-        max-width: 80%;
-        padding: 11px 14px;
+        width: fit-content;
+        max-width: 75%;
+        height: auto;
+        padding: 10px 14px;
         border-radius: 10px;
         font-size: 14.5px;
-        line-height: 1.5;
+        line-height: 1.4;
         white-space: pre-wrap;
         word-wrap: break-word;
+        box-sizing: border-box;
     }
+
     .msg-label {
         font-family: var(--mono);
         font-size: 9.5px;
@@ -393,15 +404,15 @@ st.markdown(
         opacity: 0.65;
         margin-bottom: 4px;
     }
+
     .msg.bot {
-        align-self: flex-start;
         background: var(--panel-raised);
         border: 1px solid var(--line);
         border-bottom-left-radius: 2px;
         color: var(--paper);
     }
+
     .msg.user {
-        align-self: flex-end;
         background: var(--brass);
         color: #1a1408;
         border-bottom-right-radius: 2px;
@@ -511,7 +522,7 @@ if not st.session_state.session_active:
 # SCREEN 2: CHAT INTERFACE
 # -----------------------------------------------------------------------------
 else:
-    col_hdr_left, col_hdr_right = st.columns([4, 1])
+    col_hdr_left, col_hdr_right = st.columns([4, 1], vertical_alignment="center")
 
     with col_hdr_left:
         avatar_char = st.session_state.bot_name[0].upper() if st.session_state.bot_name else "B"
@@ -542,7 +553,7 @@ else:
         role_class = "bot" if msg["role"] == "bot" else "user"
         st.markdown(
             f"""
-            <div class="msg-wrap">
+            <div class="msg-wrap {role_class}">
                 <div class="msg {role_class}">
                     <div class="msg-label">{msg["name"]}</div>
                     {msg["text"]}
